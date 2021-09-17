@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('masterDashboard');
 });
 Route::get('/pages', function () {
-    return view('pages');
+    return view('pages.table');
 });
 Route::get('/profile', function () {
-    return view('profile');
+    return view('pages.profile');
 });
+Route::get('/login', function () {
+    return view('pages.login');
+});
+
