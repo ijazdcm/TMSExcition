@@ -23,7 +23,7 @@ class AdminLoginController extends Controller
         }
     }
 
-    //methode to logout admin 
+    //methode to logout admin
     public function logout(Request $request)
     {
         Session::pull('Admin');
