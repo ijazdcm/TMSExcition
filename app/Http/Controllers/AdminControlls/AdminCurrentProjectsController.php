@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminControlls;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminModels\Projects;
 use Illuminate\Http\Request;
 
 class AdminCurrentProjectsController extends Controller
@@ -14,7 +15,10 @@ class AdminCurrentProjectsController extends Controller
      */
     public function index()
     {
-        return view('projects.CurrentProjects.index');
+        $porjects = Projects::join('statuses', 'projects.current_status', '=', 'statuses.id')
+            ->select('projects.*', 'projects.id as pr_id', 'statuses.*')->paginate(5);
+
+        return view('projects.CurrentProjects.index', ["projects" => $porjects]);
     }
 
     /**
@@ -44,9 +48,10 @@ class AdminCurrentProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Projects $Currentproject)
     {
-        //
+
+        return view('projects.CurrentProjects.show', ['project' => $Currentproject]);
     }
 
     /**

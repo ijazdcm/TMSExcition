@@ -23,24 +23,30 @@
                             <tr>
                                 <th>Project Name</th>
                                 <th>Client Name</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
                                 <th>Status</th>
-                                <th>Project Lead</th>
                                 <th>Completion</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody class="list">
+                            @foreach($projects as $porject)
                             <tr>
-                                <td>LoanStories</td>
-                                <td>Esakiraj</td>
-                                <td>pending</td>
-                                <td>David</td>
-                                <td>60%</td>
-                                <td><a href="" class="btn btn-sm btn-warning"><i class="far fa-eye px-1"></i>view</a></td>
+                                <td>{{$porject->project_tittle}}</td>
+                                <td>{{$porject->client_name}}</td>
+                                <td>{{$porject->start_date}}</td>
+                                <td>{{$porject->end_date}}</td>
+                                <td><span class="badge badge-default">{{$porject->status}}</span></td>
+                                <td>{{$porject->completion_percentage}}-%</td>
+                                <td><a href="{{route('Currentprojects.show',$porject->pr_id)}}" class="btn btn-sm btn-warning"><i class="far fa-eye px-1"></i>view</a></td>
                             </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
+                    <div class="float-right">
+                        {{$projects->links()}}
+                    </div>
                 </div>
 
             </div>
