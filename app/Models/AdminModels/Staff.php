@@ -20,8 +20,8 @@ class Staff extends Model
     ];
 
 
-    public function staff_role()
+    public function staff_Role()
     {
-        return $this->hasOne(Role_Staff::class,'role_for_staff','id');
+        return $this->hasManyThrough(Roles::class,staff_roles::class,'staff_id','id','id','role_id');
     }
 }

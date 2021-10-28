@@ -13,4 +13,8 @@
     <link href="{{asset('argon/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="{{asset('argon/assets/css/argon-dashboard.css')}}" rel="stylesheet" />
+    {{-- bootstrap multiselect css --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    {{-- toaster notification --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
   </head>

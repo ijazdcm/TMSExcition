@@ -20,8 +20,6 @@ class CreateStaffTable extends Migration
             $table->string('phonenumber');
             $table->string('password')->default(Hash::make('12345'));
             $table->string('email');
-            $table->bigInteger('staff_role')->unsigned()->nullable()->default(null)->comment('role of a staff');
-            $table->foreign('staff_role')->references('id')->on('roles');
             $table->string('active_status')->default(1)->comment('1 means active 0 means disabled');
             $table->string('dl_status')->default(1)->comment('1 means not deleted 0 means deleted');
             $table->timestamps();

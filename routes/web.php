@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminControlls\AdminCurrentProjectsController;
 use App\Http\Controllers\AdminControlls\AdminLoginController;
 use App\Http\Controllers\AdminControlls\AdminProjectsController;
+use App\Models\AdminModels\Projects;
+use App\Models\AdminModels\Staff;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -17,20 +19,15 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
-// Route::get('/', function () {
-//     return view('masterDashboard');
-// });
 Route::get('/pages', function () {
     return view('pages.table');
 });
 Route::get('/profile', function () {
     return view('pages.profile');
 });
-// Route::get('/', function () {
-//     return view('pages.login');
-// });
-Route::view('/', 'pages.login');
 
+
+Route::view('/', 'pages.login');
 //route section to handle the logins of admin
 Route::post('/', [AdminLoginController::class, 'login'])->name('admin.login');
 Route::prefix('admin')->middleware('is_admin')->group(function () {
@@ -38,4 +35,12 @@ Route::prefix('admin')->middleware('is_admin')->group(function () {
     Route::post('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
     Route::resource('projects', AdminProjectsController::class);
     Route::resource('Currentprojects', AdminCurrentProjectsController::class);
+});
+
+
+//test route section
+Route::get('/test',function(){
+
+    $projects=Projects::all();
+    return view('test',["projects"=>$projects]);
 });

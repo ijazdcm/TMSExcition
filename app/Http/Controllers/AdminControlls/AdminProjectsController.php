@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\AdminControlls;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjectRequest\AddProjectRequest;
 use App\Models\AdminModels\Projects;
 use App\Models\AdminModels\Staff;
+use App\Models\Projects\project_members;
+use App\Service\AdminProjectService;
 use Illuminate\Http\Request;
 
 class AdminProjectsController extends Controller
@@ -39,34 +42,25 @@ class AdminProjectsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddProjectRequest $request,AdminProjectService $service)
     {
-        $this->validate($request, [
-            "project_tittle" => "required",
-            "Client_name" => "required",
-            "days" => "required|numeric",
-            "project_description" => "required",
-            "start_date" => "required",
-            "end_date" => "required",
-            "developer" => "required|numeric",
-            "designer" => "required|numeric"
-        ]);
 
-        $add_project = new Projects();
-        $add_project->project_tittle = $request->project_tittle;
-        $add_project->client_name = $request->Client_name;
-        $add_project->days = $request->days;
-        $add_project->description = $request->project_description;
-        $add_project->start_date = $request->start_date;
-        $add_project->end_date = $request->end_date;
-        $add_project->to_dev = $request->developer;
-        $add_project->to_des = $request->designer;
-        $add_project->current_status = 1;
-        if ($add_project->save()) {
-            return redirect()->back()->with('success', "New Project Added");
-        } else {
-            return redirect()->back()->with('error', "Something Looks Wrong Check All Inputs");
+        if($service->add_new_project($request))
+        {
+            $notification = array(
+                'message' => 'Project created successfully!',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }else {
+            $notification = array(
+                'message' => 'Something Looks Wrong Check All Inputs!',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
         }
+
+
     }
 
     /**

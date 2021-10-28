@@ -21,11 +21,7 @@ class CreateProjectsTable extends Migration
             $table->longText('description');
             $table->date('start_date');
             $table->date('end_date');
-            $table->bigInteger('to_dev')->unsigned()->default(0)->comment('assigned to developer');
-            $table->foreign('to_dev')->references('id')->on('staff');
-            $table->bigInteger('to_des')->unsigned()->default(0)->comment('assigned to designer');
-            $table->foreign('to_des')->references('id')->on('staff');
-            $table->bigInteger('current_status')->unsigned()->default(0)->comment('current status of project');
+            $table->bigInteger('current_status')->unsigned()->default(1)->comment('current status of project');
             $table->foreign('current_status')->references('id')->on('statuses');
             $table->tinyInteger('completion_percentage')->default(0)->comment("to show how muxh perent does project complete");
             $table->string('update_remarks')->comment("to show last status of update")->nullable();

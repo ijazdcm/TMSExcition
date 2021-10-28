@@ -113,31 +113,15 @@
                         <input class="form-control" type="date" name="end_date" value="{{old('end_date')}}" id="example-date-input">
                     </div>
                 </div>
-                <div class="col col-md-3">
+                <div class="col col-md-6">
                     <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">Developer</label>
-                        <select class="form-control" name="developer">
-                            <option value="">Select Developer</option>
-                            @foreach ($developers as $developer)
-                            @if($developer->staff_role==1)
-                            <option value="{{$developer->id}}">{{$developer->name}}</option>
-                            @endif
-                            @endforeach
+                        <label for="exampleFormControlSelect2">Choose Team Members</label>
+                        <select multiple  data-live-search="true" class="form-control selectpicker" name="members[]" id="exampleFormControlSelect2">
+                        @foreach ($developers as $developer)
+                        <option value="{{$developer->id}}" >{{$developer->name}}</option>
+                        @endforeach
                         </select>
-                    </div>
-                </div>
-                <div class="col col-md-3">
-                    <div class="form-group">
-                        <label for="example-text-input" class="form-control-label">Designer</label>
-                        <select class="form-control" name="designer">
-                            <option value="">Select Designer</option>
-                            @foreach ($developers as $developer)
-                            @if($developer->staff_role==2)
-                            <option value="{{$developer->id}}">{{$developer->name}}</option>
-                            @endif
-                            @endforeach
-                        </select>
-                    </div>
+                      </div>
                 </div>
             </div>
             <div class="row">
@@ -145,7 +129,7 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-icon btn-success" type="button">
                             <span class="btn-inner--icon"><i class="fas fa-location-arrow"></i></span>
-                            <span class="btn-inner--text">Add</span>
+                            <span class="btn-sm btn-inner--text">Add</span>
                         </button>
                     </div>
                 </div>
@@ -154,5 +138,35 @@
     </form>
     </div>
 </div>
+
+@endsection
+@section('js')
+<script>
+   $(function(){
+    $('select').selectpicker();
+   })
+</script>
+    @if(Session::has('message'))
+    <script>
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+</script>
+  @endif
 
 @endsection
