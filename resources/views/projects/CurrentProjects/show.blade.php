@@ -22,7 +22,31 @@
                                 <h5 class="card-title text-uppercase display-4 mb-0">{{$project->project_tittle}}</h5>
                                 <span class="lead mb-0"><small>{{$project->description}}</small></span>
                             </div>
+                            <div class="col">
+                                <h3>Project Members</h3>
+                                <div class="container">
+                                    @foreach($project->project_members as $members)
+                                    {{$loop->iteration}}.{{$members->name}}<br>
+                                    @endforeach
+                                    {{-- <div class="avatar-group">
+                                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                                            <img alt="Image placeholder" src="../assets/img/theme/team-1.jpg">
+                                        </a>
+                                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Romina Hadid">
+                                            <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg">
+                                        </a>
+                                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Alexander Smith">
+                                            <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg">
+                                        </a>
+                                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Jessica Doe">
+                                            <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
+                                        </a>
+                                    </div> --}}
+
+                                </div>
+                            </div>
                             <div class="col-auto">
+
                                 <div class="icon icon-shape bg-orange text-white rounded-circle shadow">
                                     <i class="fas fa-project-diagram"></i>
                                 </div>
