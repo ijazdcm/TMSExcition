@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminControlls\AdminCurrentProjectsController;
 use App\Http\Controllers\AdminControlls\AdminLoginController;
 use App\Http\Controllers\AdminControlls\AdminProjectsController;
+use App\Http\Controllers\AdminControlls\AdminStaffController;
 use App\Models\AdminModels\Projects;
 use App\Models\AdminModels\Staff;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,9 @@ Route::prefix('admin')->middleware('is_admin')->group(function () {
     Route::post('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
     Route::resource('projects', AdminProjectsController::class);
     Route::resource('Currentprojects', AdminCurrentProjectsController::class);
+
+    //route resource to handle staff creation and more
+    Route::resource('staffs', AdminStaffController::class);
 });
 
 

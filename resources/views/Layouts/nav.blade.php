@@ -71,14 +71,14 @@
             </form>
             <!-- Navigation -->
             <ul class="navbar-nav">
-                <li class="nav-item  active ">
-                    <a class="nav-link " href="{{route('projects.index')}}">
-                        <i class="ni ni-tv-2 text-primary"></i>Projects
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('admin/projects*') ? 'active' : ""}}" href="{{route('projects.index')}}">
+                        <i class="ni ni-tv-2 text-primary"></i>Project Management
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../examples/icons.html">
-                        <i class="ni ni-planet text-blue"></i> Icons
+                    <a class="nav-link {{ request()->is('admin/staffs*') ? 'active' : ""}} " href="{{route('staffs.index')}}">
+                        <i class="ni ni-badge text-success"></i> Staff Managment
                     </a>
                 </li>
                 <li class="nav-item">
