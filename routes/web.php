@@ -43,8 +43,8 @@ Route::prefix('admin')->middleware('is_admin')->group(function () {
 
 
 //test route section
-Route::get('/test',function(){
+Route::get('/test', function () {
 
-    $projects=Projects::all();
-    return view('test',["projects"=>$projects]);
+    $developers = Staff::all();
+    return view('test', ["developers" => $developers]);
 });

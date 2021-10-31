@@ -8,13 +8,15 @@
 </head>
 <body>
 
-        <ul>
+    <ul>
 
-        @foreach ($projects as $project)
-             <h2>{{$project->project_tittle}}</h2>
-            @foreach ($project->project_members as $pro )
-                <li>{{$pro->name}}</li>
-            @endforeach
+        @foreach ($developers as $developer)
+        <h2>{{$developer->name}}</h2>
+        <h2>{{$developer->staff_Role->role_name}}</h2>
+        <h2>{{$developer->projects->count()}}</h2>
+        @foreach ($developer->projects as $project_details )
+        <li>{{$project_details->project_tittle}}</li>
+        @endforeach
         @endforeach
     </ul>
 

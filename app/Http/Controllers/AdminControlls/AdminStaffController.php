@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminControlls;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminModels\Roles;
 use Illuminate\Http\Request;
 
 class AdminStaffController extends Controller
@@ -14,6 +15,7 @@ class AdminStaffController extends Controller
      */
     public function index()
     {
+
         return view('staffs.index');
     }
 
@@ -24,7 +26,7 @@ class AdminStaffController extends Controller
      */
     public function create()
     {
-        return view('staffs.create');
+        return view('staffs.create', ['roles' => Roles::all()]);
     }
 
     /**
@@ -35,7 +37,7 @@ class AdminStaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

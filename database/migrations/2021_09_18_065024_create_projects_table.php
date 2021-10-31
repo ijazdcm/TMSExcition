@@ -24,7 +24,6 @@ class CreateProjectsTable extends Migration
             $table->bigInteger('current_status')->unsigned()->default(1)->comment('current status of project');
             $table->foreign('current_status')->references('id')->on('statuses');
             $table->tinyInteger('completion_percentage')->default(0)->comment("to show how muxh perent does project complete");
-            $table->string('update_remarks')->comment("to show last status of update")->nullable();
             $table->timestamps();
         });
     }

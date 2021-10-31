@@ -26,7 +26,7 @@
                                 <h3>Project Members</h3>
                                 <div class="container">
                                     @foreach($project->project_members as $members)
-                                    {{$loop->iteration}}.{{$members->name}}<br>
+                                    {{$loop->iteration}}.{{$members->name}}|| {{ $members->staff_Role->role_name}}<br>
                                     @endforeach
                                     {{-- <div class="avatar-group">
                                         <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Ryan Tompson">
