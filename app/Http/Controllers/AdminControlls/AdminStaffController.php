@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminControlls;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminModels\Roles;
+use App\Models\SubMasters\Skill;
 use Illuminate\Http\Request;
 
 class AdminStaffController extends Controller
@@ -26,7 +27,7 @@ class AdminStaffController extends Controller
      */
     public function create()
     {
-        return view('staffs.create', ['roles' => Roles::all()]);
+        return view('staffs.create', ['roles' => Roles::all(),"skills"=>Skill::all()]);
     }
 
     /**

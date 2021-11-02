@@ -14,15 +14,29 @@ class Staff extends Model
     protected $table = "staff";
     protected $fillable = [
         "name",
-        "middle_name",
-        "last_name",
-        "phone_number",
-        "email",
+        "father_name",
+        "mother_name",
+        "adhar_number",
+        "dob",
+        "age",
+        "gender",
+        "martial_status",
+        "staff_role",
         "Address",
         "profile_img",
-        "staff_role",
+        "phone_number",
+        "email",
+        "father_phone_number",
+        "mother_phone_number",
+        "experienceRadioBtn",
+        "previous_company_name",
+        "previous_company_salary",
+        "education_qualification",
+        "experience",
+        "doj",
         "active_status",
         "dl_status",
+
     ];
 
 

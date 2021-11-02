@@ -2,14 +2,13 @@
 <html lang="en">
  @include('Layouts.header')
 <body class="bg-default">
-    <body class="">
         @include('Layouts.nav')
         <div class="main-content">
           <!-- Navbar -->
            @include('Layouts.topnav')
           <!-- End Navbar -->
           <!-- Header -->
-          <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+          <div class="header bg-primary pb-8 pt-5 pt-md-6">
             @yield('top-section')
           </div>
           {{-- @yield('dashbar') --}}
