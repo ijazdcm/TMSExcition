@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class is_admin
 {
@@ -17,10 +18,14 @@ class is_admin
     public function handle(Request $request, Closure $next)
     {
 
-        if (!session()->has('Admin')) {
+        if (Auth::check()) {
+            return $next($request);
+        }
+        else
+        {
             return redirect()->route('admin.login');
         }
 
-        return $next($request);
+
     }
 }

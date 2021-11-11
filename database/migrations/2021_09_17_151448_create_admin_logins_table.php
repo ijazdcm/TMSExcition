@@ -17,6 +17,7 @@ class CreateAdminLoginsTable extends Migration
             $table->id();
             $table->string('username');
             $table->string('password');
+            $table->string('remember_token');
             $table->timestamps();
         });
     }

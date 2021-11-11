@@ -19,6 +19,7 @@ class AdminLoginSeeder extends Seeder
         DB::table('admin_logins')->insert([
             'username' => "ADMIN",
             'password' => Hash::make(1412),
+            'remember_token'=>"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         ]);
     }
 }
