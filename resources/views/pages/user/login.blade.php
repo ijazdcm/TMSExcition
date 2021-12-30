@@ -1,19 +1,16 @@
 @extends('Layouts.loginLayout')
-
 @section('tittle')
 <title>
-    Exciteon || ADMIN LOGIN
+    Exciteon || USER LOGIN
 </title>
 @endsection
-
-
 @section('login')
 <div class="main-content">
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
         <div class="container px-4">
             <a class="navbar-brand " href="../index.html">
-                <h1 class="text-white">EXCITEON</h1>
+                <h1 class="text-white">EXCITEON USER LOGIN</h1>
                 {{-- <img src="../assets/img/brand/white.png" /> --}}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,9 +36,9 @@
                 <!-- Navbar items -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="{{route('user.login')}}">
+                        <a class="nav-link nav-link-icon" href="{{route('admin.login')}}">
                             <i class="ni ni-circle-08"></i>
-                            <span class="nav-link-inner--text">User Login</span>
+                            <span class="nav-link-inner--text">Admin Login</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -91,7 +88,7 @@
                 <div class="card bg-secondary shadow border-0">
                     <div class="card-header bg-transparent pb-5">
                         <div class="text-muted text-center mt-2 mb-3">
-                            <h3>Login</h3>
+                            <h3>User Login</h3>
                         </div>
                         <div class="btn-wrapper text-center">
                             @if(session('auth_error'))
@@ -113,7 +110,7 @@
                         {{-- <div class="text-center text-muted mb-4">
                 <small>Or sign in with credentials</small>
               </div> --}}
-                        <form role="form" method="POST">
+                        <form role="form"  method="POST">
                             @csrf
                             <div class="form-group mb-3">
                                 @error('username')

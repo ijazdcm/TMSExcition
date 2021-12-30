@@ -17,7 +17,7 @@
             </div>
             <div class="col-lg-6 col-4 text-right">
                 <a href="{{route('admin.dashboard')}}" class="btn btn-sm btn-neutral">Home</a>
-                <a href="{{route('staffsList.index')}}" class="btn btn-sm btn-neutral">Back</a>
+                <a href="{{route('admin.staffsList.index')}}" class="btn btn-sm btn-neutral">Back</a>
             </div>
         </div>
     </div>

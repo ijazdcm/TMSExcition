@@ -5,7 +5,7 @@
             <div class="header-body">
                 <div class="row align-items-center py-4">
                     <div class="col-lg-6 col-7">
-                        <h6 class="h2 text-white d-inline-block mb-0">New Staff</h6>
+                        <h6 class="h2 text-white d-inline-block mb-0">Login For Staff</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i
@@ -62,27 +62,27 @@
                 <form action="{{ route('admin.staffs.store') }}" method="POST">
                     @csrf
                     <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Personal Information</legend>
+                        <legend class="scheduler-border">Login Information</legend>
                         {{-- First row --}}
                         <div class="row">
                             <div class="col-md-3">
-                                @error('name')
+                                @error('email')
                                     <span class="badge badge-danger">{{ $message }}</span>
                                 @enderror
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Name</label>
-                                    <input class="form-control" type="text" placeholder="Name" name="name"
-                                        value="{{ old('name') }}" id="example-text-input">
+                                    <label for="example-text-input" class="form-control-label">Company Email</label>
+                                    <input class="form-control" type="email" placeholder="test@exciteon.com" name="email"
+                                        value="{{ old('email') }}" id="example-text-input" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                @error('father_name')
+                                @error('email_password')
                                     <span class="badge badge-danger">{{ $message }}</span>
                                 @enderror
                                 <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Father Name</label>
-                                    <input class="form-control" type="text" placeholder="Father Name" name="father_name"
-                                        value="{{ old('father_name') }}" id="example-text-input">
+                                    <label for="example-text-input" class="form-control-label">Email Password</label>
+                                    <input class="form-control" type="password" placeholder="Email Password" name="email_password"
+                                        value="{{ old('email_password') }}" id="example-text-input" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -152,9 +152,9 @@
                                 <div class="form-group">
                                     <label for="form-control-label" class="form-control-label">Choose The Role</label>
                                     <select class="form-control" name="staff_role" id="">
-                                        @foreach ($roles as $role)
+                                        {{-- @foreach ($roles as $role)
                                             <option value="{{ $role->id }}">{{ $role->role_name }}</option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </div>
                             </div>
@@ -184,157 +184,6 @@
                             <div class="col-md-3">
                                 <img class="card-img-top" style="height: 90%" id="blah" src="" alt="Your Image" />
                             </div>
-                        </div>
-                    </fieldset>
-                    {{-- contact information --}}
-                    <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Contact Infomation</legend>
-                        {{-- second row --}}
-                        <div class="row">
-                            <div class="col-md-3">
-                                @error('phone_number')
-                                    <span class="badge badge-danger">{{ $message }}</span>
-                                @enderror
-                                <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Phone Number</label>
-                                    <input class="form-control" type="text" id="example-text-input" name="phone_number"
-                                        value="{{ old('phone_number') }}" placeholder="Phone Number">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                @error('email')
-                                    <span class="badge badge-danger">{{ $message }}</span>
-                                @enderror
-                                <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Personal Email</label>
-                                    <input class="form-control" type="text" placeholder="Personal Email" name="email"
-                                        value="{{ old('email') }}" id="example-text-input">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                @error('father_phone_number')
-                                    <span class="badge badge-danger">{{ $message }}</span>
-                                @enderror
-                                <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Father Phone Number</label>
-                                    <input class="form-control" type="text" placeholder="Father Phone Number"
-                                        name="father_phone_number" value="{{ old('father_phone_number') }}"
-                                        id="example-text-input">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                @error('mother_phone_number')
-                                    <span class="badge badge-danger">{{ $message }}</span>
-                                @enderror
-                                <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Mother Phone Number</label>
-                                    <input class="form-control" type="text" id="example-text-input"
-                                        name="mother_phone_number" value="{{ old('mother_phone_number') }}"
-                                        placeholder="Mother Phone Number">
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    {{-- Qualification & Experience --}}
-                    <fieldset class="scheduler-border">
-                        <legend class="scheduler-border">Experience Infomation</legend>
-                        {{-- Third row --}}
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="py-2" for="">Experience : </label>
-                                    <div class="custom-control custom-radio custom-control-inline experience">
-                                        <input type="radio" id="customRadioInline1" name="experienceRadioBtn"
-                                            class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadioInline1">Yes</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline experience">
-                                        <input type="radio" id="customRadioInline2" name="experienceRadioBtn"
-                                            class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadioInline2">No</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="if_experience">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    @error('previous_company_name')
-                                        <span class="badge badge-danger">{{ $message }}</span>
-                                    @enderror
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Previous Company
-                                            Name</label>
-                                        <input class="form-control" type="text" placeholder="Company Name"
-                                            name="previous_company_name" value="{{ old('previous_company_name') }}"
-                                            id="example-text-input">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    @error('previous_company_salary')
-                                        <span class="badge badge-danger">{{ $message }}</span>
-                                    @enderror
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Previous Salary</label>
-                                        <input class="form-control" type="text" placeholder="Company Name"
-                                            name="previous_company_salary" value="{{ old('previous_company_salary') }}"
-                                            id="example-text-input">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                @error('education_qualification')
-                                    <span class="badge badge-danger">{{ $message }}</span>
-                                @enderror
-                                <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Qualification
-                                        </label>
-                                    <input class="form-control" type="text" placeholder="Qualification"
-                                        name="education_qualification" value="{{ old('education_qualification') }}"
-                                        id="example-text-input">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                @error('experience')
-                                    <span class="badge badge-danger">{{ $message }}</span>
-                                @enderror
-                                <div class="form-group">
-                                    <label for="form-control-label" class="form-control-label">Experience</label>
-                                    <select class="form-control" name="experience" id="">
-                                        <option value="">Experience</option>
-                                        <option value="0">fresher</option>
-                                        <option value="0.5">6-months</option>
-                                        <option value="1">1-year</option>
-                                        <option value="1.5">1.5 year</option>
-                                        <option value="2">2-year</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                @error('dob')
-                                    <span class="badge badge-danger">{{ $message }}</span>
-                                @enderror
-                                <div class="form-group">
-                                    <label for="example-text-input" class="form-control-label">Date of Joining</label>
-                                    <input class="form-control" type="date" placeholder="Joining date" name="doj"
-                                        value="{{ old('dob') }}" id="example-text-input">
-                                </div>
-                            </div>
-                            <div class="col col-md-4">
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect2">Skills</label>
-                                    <select multiple data-live-search="true" class="form-control selectpicker"
-                                        name="members[]" id="exampleFormControlSelect2">
-                                        @foreach ($skills as $skill)
-                                            <option value="{{ $skill->id }}">{{ $skill->skill_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            </dov>
                         </div>
                     </fieldset>
                     <div class="row">

@@ -17,8 +17,6 @@ class AdminLoginService
 
 
         if (Auth::attempt(["username"=>$request->username,"password"=>$request->password],$remember=true)) {
-            $request->session()->regenerate();
-
             return redirect()->intended('admin.dashboard');
         }
 

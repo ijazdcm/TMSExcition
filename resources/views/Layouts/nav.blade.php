@@ -72,13 +72,18 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('admin/projects*') ? 'active' : ""}}" href="{{route('projects.index')}}">
+                    <a class="nav-link {{ request()->is('admin/projects*') ? 'active' : ""}}" href="{{route('admin.projects.index')}}">
                         <i class="ni ni-tv-2 text-primary"></i>Project Management
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('admin/staffs*') ? 'active' : ""}} " href="{{route('staffs.index')}}">
+                    <a class="nav-link {{ request()->is('admin/staffs*') ? 'active' : ""}} " href="{{route('admin.staffs.index')}}">
                         <i class="ni ni-badge text-success"></i> Staff Managment
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('admin/staffsLogin*') ? 'active' : ""}} " href="{{route('admin.staffsLogin.index')}}">
+                        <i class="fas fa-key"></i> Staff Login Management
                     </a>
                 </li>
                 <li class="nav-item">
